@@ -7,7 +7,20 @@
 
 import UIKit
 
-class CitiesTableViewController: UITableViewController {
+class CitiesTableViewController: UITableViewController, WeatherServiceDelegate {
+    func weatherServiceDelegateDidFinishWithData(result: Double, result2: Int) {
+        
+    }
+    
+
+    
+    lazy var myService : Service = {
+        let service = Service()
+        service.delegate2 = self
+        return service
+    }()
+    
+    
     
     func fetchAllLocations(){
         
@@ -55,8 +68,13 @@ class CitiesTableViewController: UITableViewController {
         return cell
     }
     
-
-    /*
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //weatherServiceDelegateDidFinishWithData(city: allLocations[indexPath.row].city!)
+        myService.fetchFromWeather(key: "\(allLocations[indexPath.row].city!)"){(weather, weather2) in
+            
+        }
+    }    /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.

@@ -16,6 +16,7 @@
 		DD0342E225700DC6000109C9 /* LocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0342E125700DC6000109C9 /* LocationsTableViewController.swift */; };
 		DD0342E525706929000109C9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0342E425706929000109C9 /* CoreDataManager.swift */; };
 		DD0342E825709814000109C9 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0342E725709814000109C9 /* Service.swift */; };
+		DD25A8512572E9B10092B78E /* WeatherDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD25A8502572E9B10092B78E /* WeatherDetailViewController.swift */; };
 		DDE50BAB25716AE3009BC0EC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE50BAA25716AE3009BC0EC /* Model.swift */; };
 		DDE50BAE2571B0F5009BC0EC /* CitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE50BAD2571B0F5009BC0EC /* CitiesTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		DD0342E125700DC6000109C9 /* LocationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsTableViewController.swift; sourceTree = "<group>"; };
 		DD0342E425706929000109C9 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		DD0342E725709814000109C9 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		DD25A8502572E9B10092B78E /* WeatherDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailViewController.swift; sourceTree = "<group>"; };
 		DDE50BAA25716AE3009BC0EC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		DDE50BAD2571B0F5009BC0EC /* CitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,6 +80,7 @@
 				DD0342E725709814000109C9 /* Service.swift */,
 				DDE50BAA25716AE3009BC0EC /* Model.swift */,
 				DDE50BAD2571B0F5009BC0EC /* CitiesTableViewController.swift */,
+				DD25A8502572E9B10092B78E /* WeatherDetailViewController.swift */,
 			);
 			path = weatherApp_API;
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD25A8512572E9B10092B78E /* WeatherDetailViewController.swift in Sources */,
 				DDE50BAB25716AE3009BC0EC /* Model.swift in Sources */,
 				DD0342E225700DC6000109C9 /* LocationsTableViewController.swift in Sources */,
 				DDE50BAE2571B0F5009BC0EC /* CitiesTableViewController.swift in Sources */,

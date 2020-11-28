@@ -11,3 +11,8 @@ struct Loca{
     var cty : String;
     var ctry : String;
 }
+
+struct Weather{
+    var temp: Double;
+    var humidity: Int;
+}
