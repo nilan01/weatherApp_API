@@ -1,0 +1,15 @@
+version: "Apple Swift version 5.3.1 (swiftlang-1200.0.41 clang-1200.0.32.8)"
+options: "37b251e35c00e18ae01e52a5cdd7ef9e"
+build_time: [1606763489, 313806000]
+inputs:
+  "/Users/user182271/Documents/weatherApp_API/weatherApp_API/WeatherDetailViewController.swift": [9223372036, 854775807]
+  "/Users/user182271/Documents/weatherApp_API/weatherApp_API/Model.swift": [9223372036, 854775807]
+  "/Users/user182271/Documents/weatherApp_API/weatherApp_API/LocationsTableViewController.swift": [9223372036, 854775807]
+  "/Users/user182271/Documents/weatherApp_API/weatherApp_API/CitiesTableViewController.swift": [9223372036, 854775807]
+  "/Users/user182271/Documents/weatherApp_API/weatherApp_API/AppDelegate.swift": [9223372036, 854775807]
+  "/Users/user182271/Documents/weatherApp_API/weatherApp_API/CoreDataManager.swift": [9223372036, 854775807]
+  "/Users/user182271/Documents/weatherApp_API/weatherApp_API/SceneDelegate.swift": [9223372036, 854775807]
+  "/Users/user182271/Documents/weatherApp_API/weatherApp_API/Service.swift": [9223372036, 854775807]
+  "/Users/user182271/Documents/weatherApp_API/build/weatherApp_API.build/Release-iphonesimulator/weatherApp_API.build/DerivedSources/CoreDataGenerated/weatherApp_API/Location+CoreDataClass.swift": [9223372036, 854775807]
+  "/Users/user182271/Documents/weatherApp_API/build/weatherApp_API.build/Release-iphonesimulator/weatherApp_API.build/DerivedSources/CoreDataGenerated/weatherApp_API/Location+CoreDataProperties.swift": [9223372036, 854775807]
+  "/Users/user182271/Documents/weatherApp_API/build/weatherApp_API.build/Release-iphonesimulator/weatherApp_API.build/DerivedSources/CoreDataGenerated/weatherApp_API/weatherApp_API+CoreDataModel.swift": [9223372036, 854775807]
