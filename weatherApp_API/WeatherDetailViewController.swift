@@ -9,21 +9,19 @@ import UIKit
 
 class WeatherDetailViewController: UIViewController {
     
-    
+
     @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
     
-    
+    var valueFromLocationsArray : [Location] = []
     var weatherObj :  Weather = Weather(temp: 0.0, humidity: 0);
+    var iOD : Int = 0;
     
-
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         humidityLabel.text = "\(weatherObj.humidity)"
         tempLabel.text = "\(weatherObj.temp)"
-        
+        self.navigationItem.title = valueFromLocationsArray[iOD].city
         // Do any additional setup after loading the view.
     }
     

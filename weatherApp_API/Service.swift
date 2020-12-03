@@ -90,8 +90,8 @@ class Service{
                             let listOfStock = jsonObject.value(forKeyPath: "main.temp") as! Double
                             
                             let listOfStock2 = jsonObject.value(forKeyPath: "main.humidity") as! Int
-                            print(listOfStock)
-                            //print(listOfLocations[0])
+                            //print(listOfStock)
+                            //print(listOfStock)
                             
                             self.delegate2?.weatherServiceDelegateDidFinishWithData(result: listOfStock, result2: listOfStock2)
                             

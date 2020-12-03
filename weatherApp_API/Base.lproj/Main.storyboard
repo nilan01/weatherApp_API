@@ -59,12 +59,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IQN-he-S3q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3862" y="102"/>
+            <point key="canvasLocation" x="2945" y="102"/>
         </scene>
         <!--Weather Detail View Controller-->
         <scene sceneID="XqP-UZ-8LU">
             <objects>
-                <viewController id="HD9-44-eNM" customClass="WeatherDetailViewController" customModule="weatherApp_API" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WeatherDetailViewController" id="HD9-44-eNM" customClass="WeatherDetailViewController" customModule="weatherApp_API" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="afD-vd-ejd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -157,7 +157,7 @@
                     <navigationItem key="navigationItem" title="Cities" id="o8C-jd-1F6">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="IeK-6Y-Cyx">
                             <connections>
-                                <segue destination="qNC-75-b5i" kind="show" id="yyo-mY-fNT"/>
+                                <segue destination="qNC-75-b5i" kind="show" identifier="locationsSegue" id="yyo-mY-fNT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
