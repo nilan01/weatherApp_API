@@ -9,13 +9,13 @@ import UIKit
 
 class CitiesTableViewController: UITableViewController, WeatherServiceDelegate {
     
-    var weather : Weather = Weather(temp: 0, humidity: 0)
+    var weather1 : Weather = Weather(temp: 0, humidity: 0)
 
     
     
     func weatherServiceDelegateDidFinishWithData(result: Double, result2: Int) {
-        weather.humidity = result2
-        weather.temp = result
+        weather1.humidity = result2
+        weather1.temp = result
         //setWeather(r: result, r1: result2)
     }
 
@@ -65,7 +65,9 @@ class CitiesTableViewController: UITableViewController, WeatherServiceDelegate {
     var i = 0;
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         myService.fetchFromWeather(key: "\(allLocations[indexPath.row].city!)"){(weather, weather2) in
-            
+            print(weather)
+            self.weather1.temp = weather
+            self.weather1.humidity = weather2
         }
         let selectedOrder = self.allLocations[indexPath.row]
         i = indexPath.row
@@ -81,7 +83,8 @@ class CitiesTableViewController: UITableViewController, WeatherServiceDelegate {
             let history : LocationsTableViewController = segue.destination as! LocationsTableViewController
         }else{
             let weatherDetails : WeatherDetailViewController = segue.destination as! WeatherDetailViewController
-            weatherDetails.weatherObj = weather
+            weatherDetails.weatherObj = weather1
+            print(weather1.humidity)
             let locations : [Location] = allLocations
             weatherDetails.valueFromLocationsArray = locations
             weatherDetails.iOD = i

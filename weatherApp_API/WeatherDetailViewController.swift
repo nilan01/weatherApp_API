@@ -7,8 +7,7 @@
 
 import UIKit
 
-class WeatherDetailViewController: UIViewController {
-    
+class WeatherDetailViewController: UIViewController{
 
     @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
@@ -19,13 +18,14 @@ class WeatherDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         humidityLabel.text = "\(weatherObj.humidity)"
         tempLabel.text = "\(weatherObj.temp)"
         self.navigationItem.title = valueFromLocationsArray[iOD].city
         // Do any additional setup after loading the view.
     }
     
-
+ 
     /*
     // MARK: - Navigation
 
