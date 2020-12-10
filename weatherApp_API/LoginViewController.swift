@@ -11,7 +11,6 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
@@ -19,8 +18,12 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
         if let authUI = FUIAuth.defaultAuthUI(){
             authUI.providers = [FUIOAuth.appleAuthProvider(), FUIOAuth.twitterAuthProvider()]
             authUI.delegate = self
-            
             let authViewController = authUI.authViewController()
+            let textField = UITextView(frame: CGRect(x: 10.0, y: 350.0, width: UIScreen.main.bounds.size.width - 20.0, height: 50.0))
+            textField.textAlignment = .center
+            textField.text = "Social Media Login Disabled.\n\nBypass login by touching \"Cancel\" and then touching \"Weather\".\n"
+            authViewController.view.addSubview(textField)
+            
             self.present(authViewController, animated: true)
         }
     }

@@ -15,4 +15,5 @@ struct Loca{
 struct Weather{
     var temp: Double;
     var humidity: Int;
+    var icon : String;
 }
