@@ -63,14 +63,12 @@ class CitiesTableViewController: UITableViewController, WeatherServiceDelegate {
         return cell
     }
     
+    var model = Model()
     var i = 0;
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        myService.fetchFromWeather(key: "\(allLocations[indexPath.row].city!)"){(weather, weather2, weather3) in
-            //print(weather)
-            self.weather1.temp = weather
-            self.weather1.humidity = weather2
-        }
-        let selectedOrder = self.allLocations[indexPath.row]
+
+        //let selectedOrder = self.allLocations[indexPath.row]
+        model.getCity = self.allLocations[indexPath.row].city!
         i = indexPath.row
     }
 
@@ -85,6 +83,7 @@ class CitiesTableViewController: UITableViewController, WeatherServiceDelegate {
         }else{
             let weatherDetails : WeatherDetailViewController = segue.destination as! WeatherDetailViewController
             weatherDetails.weatherObj = weather1
+            weatherDetails.model = model
             //print(weather1.humidity)
             let locations : [Location] = allLocations
             weatherDetails.valueFromLocationsArray = locations

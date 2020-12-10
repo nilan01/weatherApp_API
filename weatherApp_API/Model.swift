@@ -17,3 +17,7 @@ struct Weather{
     var humidity: Int;
     var icon : String;
 }
+
+class Model{
+    var getCity : String = ""
+}

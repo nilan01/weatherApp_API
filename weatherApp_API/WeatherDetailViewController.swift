@@ -8,14 +8,16 @@
 import UIKit
 
 class WeatherDetailViewController: UIViewController, IconServiceDelegate{
+    
+    var model = Model()
+    
     func iconServiceDelegateDidFinishWithData(result: Data) {
-        print(result)
-        DispatchQueue.global().async {
+        //print(result)
+        DispatchQueue.main.async {
             self.weatherIcon.image = UIImage(data: result)
         }
     }
     
-
     @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var weatherIcon: UIImageView!
@@ -32,10 +34,8 @@ class WeatherDetailViewController: UIViewController, IconServiceDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        humidityLabel.text = "\(weatherObj.humidity)"
-        tempLabel.text = "\(weatherObj.temp)"
-        self.navigationItem.title = valueFromLocationsArray[iOD].city
+        self.view.backgroundColor = .systemGray
+        self.navigationItem.title = model.getCity
         // Do any additional setup after loading the view.
     }
     
@@ -44,10 +44,17 @@ class WeatherDetailViewController: UIViewController, IconServiceDelegate{
             //print(weather)
             //self.weatherIcon.image = weather as! UIImage
         }
-        
+        myService.fetchFromWeather(key: "\(model.getCity)"){(weather, weather2, weather3) in
+            //print(weather)
+            var celWeather : Int = Int(Double(Int(weather)) - 273.15 + 0.5)
+            self.weatherObj.temp = Double(celWeather)
+            self.weatherObj.humidity = weather2
+            DispatchQueue.main.async {
+                self.humidityLabel.text = "\(self.weatherObj.humidity)"
+                self.tempLabel.text = "\(self.weatherObj.temp)"
+            }
+        }
     }
-    
- 
     /*
     // MARK: - Navigation
 

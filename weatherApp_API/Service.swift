@@ -66,6 +66,7 @@ class Service{
     }
     
     func fetchFromWeather(key : String , handler : @escaping (Double, Int, NSObject)->Void) {
+        //print(key)
          guard let myUrl = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=\(key)&appid=1d0c090ca206ea5b434cdfbced7aa471") else {return}
         URLSession.shared.dataTask(with: myUrl) { (data, request, error) in
          
@@ -83,7 +84,7 @@ class Service{
                         do {
                        let jsonObject = try JSONSerialization.jsonObject(with: myData, options: []) as! NSDictionary
                             let listOfStock = jsonObject.value(forKeyPath: "main.temp") as! Double
-                            //print(jsonObject)
+                            print(listOfStock)
                             let listOfStock2 = jsonObject.value(forKeyPath: "main.humidity") as! Int
                             let listOfStock3 = jsonObject.value(forKeyPath: "weather.icon") as! NSObject
                             //print(listOfStock3)
