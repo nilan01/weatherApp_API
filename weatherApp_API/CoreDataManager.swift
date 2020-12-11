@@ -22,6 +22,8 @@ class CoreDataManager{
         saveContext();
     }
     
+    	
+    
     func fetchLocationsFromCoreData() -> [Location] {
         let fetch : NSFetchRequest = Location.fetchRequest()
         //fetch.sortDescriptors = [NSSortDescriptor]

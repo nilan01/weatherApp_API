@@ -16,6 +16,9 @@ struct Weather{
     var temp: Double;
     var humidity: Int;
     var icon : String;
+    var desc : String;
+    var main : String;
+    var feelsLike : Double;
 }
 
 class Model{

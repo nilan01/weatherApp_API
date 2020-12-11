@@ -9,15 +9,23 @@ import UIKit
 
 class CitiesTableViewController: UITableViewController, WeatherServiceDelegate {
     
-    var weather1 : Weather = Weather(temp: 0, humidity: 0, icon: "")
+    var weather1 : Weather = Weather(temp: 0, humidity: 0, icon: "", desc: "", main: "", feelsLike: 0.0)
 
     
     
-    func weatherServiceDelegateDidFinishWithData(result: Double, result2: Int, result3: NSObject) {
+    func weatherServiceDelegateDidFinishWithData(result: Double, result2: Int, result3: NSArray, result4: NSArray, result5: NSArray, result6: Double) {
         weather1.humidity = result2
         weather1.temp = result
-        weather1.icon = result3.description
-        //setWeather(r: result, r1: result2)
+        for name in result3{
+            weather1.icon = name as! String
+        }
+        for x in result4{
+            weather1.desc = x as! String
+        }
+        for x in result5{
+            weather1.main = x as! String
+        }
+        weather1.feelsLike = result6
     }
 
     lazy var myService : Service = {
@@ -50,6 +58,19 @@ class CitiesTableViewController: UITableViewController, WeatherServiceDelegate {
         return 1
     }
 
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let managedObjectContext = CoreDataManager.shared.persistentContainer.viewContext
+        
+    
+        
+        if editingStyle == .delete{
+           // locationToDelete = allLocations.remove(at: indexPath)
+            //managedObjectContext.delete((self?.))
+            delete(allLocations[indexPath.row])
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return allLocations.count
@@ -83,6 +104,7 @@ class CitiesTableViewController: UITableViewController, WeatherServiceDelegate {
         }else{
             let weatherDetails : WeatherDetailViewController = segue.destination as! WeatherDetailViewController
             weatherDetails.weatherObj = weather1
+            //print(weather1.temp)
             weatherDetails.model = model
             //print(weather1.humidity)
             let locations : [Location] = allLocations

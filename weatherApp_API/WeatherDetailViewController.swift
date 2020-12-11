@@ -12,7 +12,6 @@ class WeatherDetailViewController: UIViewController, IconServiceDelegate{
     var model = Model()
     
     func iconServiceDelegateDidFinishWithData(result: Data) {
-        //print(result)
         DispatchQueue.main.async {
             self.weatherIcon.image = UIImage(data: result)
         }
@@ -21,15 +20,17 @@ class WeatherDetailViewController: UIViewController, IconServiceDelegate{
     @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var weatherIcon: UIImageView!
+    @IBOutlet weak var weatherDesc: UILabel!
+    @IBOutlet weak var weatherMain: UILabel!
+    @IBOutlet weak var weatherFeels: UILabel!
     
     lazy var myService : Service = {
         let service = Service()
-        service.delegate3 = self
         return service
     }()
     
     var valueFromLocationsArray : [Location] = []
-    var weatherObj :  Weather = Weather(temp: 0.0, humidity: 0, icon: "");
+    var weatherObj :  Weather = Weather(temp: 0.0, humidity: 0, icon: "", desc: "", main: "", feelsLike: 0.0);
     var iOD : Int = 0;
     
     override func viewDidLoad() {
@@ -40,18 +41,40 @@ class WeatherDetailViewController: UIViewController, IconServiceDelegate{
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        myService.fetchFromWeatherIcon(key: weatherObj.icon){(weather) in
-            //print(weather)
-            //self.weatherIcon.image = weather as! UIImage
-        }
-        myService.fetchFromWeather(key: "\(model.getCity)"){(weather, weather2, weather3) in
-            //print(weather)
+        myService.fetchFromWeather(key: "\(model.getCity)"){(weather, weather2, weather3, weather4, weather5, weather6) in
+            var icon : String = ""
+            var desc : String = ""
+            var main : String = ""
+            
+            for name in weather3{
+                icon = name as! String
+                self.myService.fetchFromWeatherIcon(key: icon){(weather) in
+                    DispatchQueue.main.async{
+                        self.weatherIcon.image = UIImage(data: weather)
+                    }
+                }
+            }
+            for x in weather4{
+                desc = x as! String
+            }
+            for x in weather5{
+                main = x as! String
+            }
+            
             var celWeather : Int = Int(Double(Int(weather)) - 273.15 + 0.5)
+            var feelsWeather : Int = Int(Double(Int(weather6)) - 273.15 + 0.5)
             self.weatherObj.temp = Double(celWeather)
             self.weatherObj.humidity = weather2
+            self.weatherObj.icon = icon
+            self.weatherObj.desc = desc
+            self.weatherObj.main = main
+            self.weatherObj.feelsLike = Double(feelsWeather)
             DispatchQueue.main.async {
-                self.humidityLabel.text = "\(self.weatherObj.humidity)"
-                self.tempLabel.text = "\(self.weatherObj.temp)"
+                self.humidityLabel.text = "\(self.weatherObj.humidity)%"
+                self.tempLabel.text = "\(self.weatherObj.temp)°"
+                self.weatherDesc.text = "\(self.weatherObj.desc)"
+                self.weatherMain.text = "\(self.weatherObj.main)"
+                self.weatherFeels.text = "\(self.weatherObj.feelsLike)°"
             }
         }
     }
