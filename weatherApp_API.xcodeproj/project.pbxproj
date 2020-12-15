@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,8 +19,6 @@
 		DD0342E825709814000109C9 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0342E725709814000109C9 /* Service.swift */; };
 		DD20F052258179390092BE28 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD20F051258179390092BE28 /* GoogleService-Info.plist */; };
 		DD25A8512572E9B10092B78E /* WeatherDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD25A8502572E9B10092B78E /* WeatherDetailViewController.swift */; };
-		DD2A992525819B44009F5343 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2A992425819B44009F5343 /* LoginViewController.swift */; };
-		DD4BDA402581896800185556 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4BDA3F2581896800185556 /* UIViewController.swift */; };
 		DDE50BAB25716AE3009BC0EC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE50BAA25716AE3009BC0EC /* Model.swift */; };
 		DDE50BAE2571B0F5009BC0EC /* CitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE50BAD2571B0F5009BC0EC /* CitiesTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -42,8 +40,6 @@
 		DD0342E725709814000109C9 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		DD20F051258179390092BE28 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DD25A8502572E9B10092B78E /* WeatherDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailViewController.swift; sourceTree = "<group>"; };
-		DD2A992425819B44009F5343 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		DD4BDA3F2581896800185556 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		DD7F2F6F258199C300AD7DE3 /* weatherApp_API.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = weatherApp_API.entitlements; sourceTree = "<group>"; };
 		DDE50BAA25716AE3009BC0EC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		DDE50BAD2571B0F5009BC0EC /* CitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesTableViewController.swift; sourceTree = "<group>"; };
@@ -114,8 +110,6 @@
 				DDE50BAA25716AE3009BC0EC /* Model.swift */,
 				DDE50BAD2571B0F5009BC0EC /* CitiesTableViewController.swift */,
 				DD25A8502572E9B10092B78E /* WeatherDetailViewController.swift */,
-				DD4BDA3F2581896800185556 /* UIViewController.swift */,
-				DD2A992425819B44009F5343 /* LoginViewController.swift */,
 			);
 			path = weatherApp_API;
 			sourceTree = "<group>";
@@ -131,8 +125,7 @@
 				DD0342BA256FFCE4000109C9 /* Sources */,
 				DD0342BB256FFCE4000109C9 /* Frameworks */,
 				DD0342BC256FFCE4000109C9 /* Resources */,
-				EF858D9B505057C77EAF3CBA /* [CP] Embed Pods Frameworks */,
-				C9909C4BF5471568B618583C /* [CP] Copy Pods Resources */,
+				07ECF57363ED30ED50ECB050 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -212,24 +205,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C9909C4BF5471568B618583C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-weatherApp_API/Pods-weatherApp_API-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-weatherApp_API/Pods-weatherApp_API-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-weatherApp_API/Pods-weatherApp_API-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EF858D9B505057C77EAF3CBA /* [CP] Embed Pods Frameworks */ = {
+		07ECF57363ED30ED50ECB050 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -256,14 +232,12 @@
 				DD25A8512572E9B10092B78E /* WeatherDetailViewController.swift in Sources */,
 				DDE50BAB25716AE3009BC0EC /* Model.swift in Sources */,
 				DD0342E225700DC6000109C9 /* LocationsTableViewController.swift in Sources */,
-				DD4BDA402581896800185556 /* UIViewController.swift in Sources */,
 				DDE50BAE2571B0F5009BC0EC /* CitiesTableViewController.swift in Sources */,
 				DD0342CC256FFCE4000109C9 /* weatherApp_API.xcdatamodeld in Sources */,
 				DD0342C2256FFCE4000109C9 /* AppDelegate.swift in Sources */,
 				DD0342E525706929000109C9 /* CoreDataManager.swift in Sources */,
 				DD0342C4256FFCE4000109C9 /* SceneDelegate.swift in Sources */,
 				DD0342E825709814000109C9 /* Service.swift in Sources */,
-				DD2A992525819B44009F5343 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

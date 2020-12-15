@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Alamofire
+
 
 protocol ServiceDelegate {
     func serviceDelegateDidFinishWithData(location : Location)
@@ -93,6 +95,7 @@ class Service{
     
     func fetchFromWeatherIcon(key : String , handler : @escaping (Data)->Void) {
          guard let myUrl = URL(string: "http://openweathermap.org/img/wn/\(key)@2x.png") else {return}
+        /*
         URLSession.shared.dataTask(with: myUrl) { (data, request, error) in
             if let _ = error {return}
             guard let httpResponse = request as? HTTPURLResponse,
@@ -113,6 +116,15 @@ class Service{
                             
                         }
             }
-        }.resume()
+        }.resume()*/
+        
+        AF.request(myUrl).responseData{response in
+            debugPrint(response)
+            var hi : Data;
+            hi = Data(response.data!)
+            print("THIS IS IN THE REQUEST", hi)
+            self.delegate3?.iconServiceDelegateDidFinishWithData(result: hi)
+        }
+        
     }
 }

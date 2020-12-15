@@ -6,16 +6,20 @@
 //
 
 import UIKit
+import Alamofire
 
 class WeatherDetailViewController: UIViewController, IconServiceDelegate{
     
     var model = Model()
     
     func iconServiceDelegateDidFinishWithData(result: Data) {
+        print("THIS IS IN DETAILS", result)
         DispatchQueue.main.async {
             self.weatherIcon.image = UIImage(data: result)
+            //print(result)
         }
     }
+    
     
     @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
@@ -37,6 +41,7 @@ class WeatherDetailViewController: UIViewController, IconServiceDelegate{
         super.viewDidLoad()
         self.view.backgroundColor = .systemGray
         self.navigationItem.title = model.getCity
+        myService.delegate3 = self
         // Do any additional setup after loading the view.
     }
     
@@ -61,8 +66,8 @@ class WeatherDetailViewController: UIViewController, IconServiceDelegate{
                 main = x as! String
             }
             
-            var celWeather : Int = Int(Double(Int(weather)) - 273.15 + 0.5)
-            var feelsWeather : Int = Int(Double(Int(weather6)) - 273.15 + 0.5)
+            let celWeather : Int = Int(Double(Int(weather)) - 273.15 + 0.5)
+            let feelsWeather : Int = Int(Double(Int(weather6)) - 273.15 + 0.5)
             self.weatherObj.temp = Double(celWeather)
             self.weatherObj.humidity = weather2
             self.weatherObj.icon = icon

@@ -19,21 +19,20 @@ class LocationsTableViewController: UITableViewController, UISearchBarDelegate, 
         arrayOfLocas.removeAll()
         locationSet = result;
         
-        for var i in locationSet!{
+        for i in locationSet!{
             let index = i.firstIndex(of: ",")!
             let city = i[..<index]
             //print(city)
             
             //let index2 = i.lastIndex(of: ",")!
-            var stringArr = i.components(separatedBy: ",")
+            let stringArr = i.components(separatedBy: ",")
             let country = stringArr.last
-            print(country)
-            var place = Loca(cty: String(city), ctry: String(country!))
+            print(country as Any)
+            let place = Loca(cty: String(city), ctry: String(country!))
             arrayOfLocas.append(place)
             DispatchQueue.main.async {
                        self.tableView.reloadData()
             }
-            //CoreDataManager.shared.insertNewLocation(city: String(city), country: String(country))
         }
 
         

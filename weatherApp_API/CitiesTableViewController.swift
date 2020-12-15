@@ -60,7 +60,7 @@ class CitiesTableViewController: UITableViewController, WeatherServiceDelegate {
 
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        let managedObjectContext = CoreDataManager.shared.persistentContainer.viewContext
+        _ = CoreDataManager.shared.persistentContainer.viewContext
         
     
         
@@ -100,7 +100,7 @@ class CitiesTableViewController: UITableViewController, WeatherServiceDelegate {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if(segue.identifier == "locationsSegue"){
-            let history : LocationsTableViewController = segue.destination as! LocationsTableViewController
+            let _ : LocationsTableViewController = segue.destination as! LocationsTableViewController
         }else{
             let weatherDetails : WeatherDetailViewController = segue.destination as! WeatherDetailViewController
             weatherDetails.weatherObj = weather1
