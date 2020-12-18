@@ -59,7 +59,32 @@ class Service{
     
     func fetchFromWeather(key : String , handler : @escaping (Double, Int, NSArray, NSArray, NSArray, Double)->Void) {
          guard let myUrl = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=\(key)&appid=1d0c090ca206ea5b434cdfbced7aa471") else {return}
-        URLSession.shared.dataTask(with: myUrl) { (data, request, error) in
+        
+        AF.request(myUrl).validate().responseJSON{ response in
+            if let error = response.error{
+                debugPrint(error)
+            }else if let jsonObject = response.value as? NSDictionary{
+                print("This is the json Obj:", jsonObject)
+                let listOfStock = jsonObject.value(forKeyPath: "main.temp") as! Double
+                let listOfStock2 = jsonObject.value(forKeyPath: "main.humidity") as! Int
+                let listOfStock3 = jsonObject.value(forKeyPath: "weather.icon") as! NSArray
+                
+                let listOfStock4 = jsonObject.value(forKeyPath: "weather.description") as! NSArray
+                let listOfStock5 = jsonObject.value(forKeyPath: "weather.main") as! NSArray
+                
+                let listOfStock6 = jsonObject.value(forKeyPath: "main.feels_like") as! Double
+                self.delegate2?.weatherServiceDelegateDidFinishWithData(result: listOfStock, result2: listOfStock2, result3: listOfStock3, result4: listOfStock4, result5: listOfStock5, result6: listOfStock6)
+                
+                handler(listOfStock, listOfStock2, listOfStock3, listOfStock4, listOfStock5, listOfStock6)
+            }
+            print("this is the response value", type(of: response.value))
+            
+        }
+            //self.delegate3?.iconServiceDelegateDidFinishWithData(result: hi)
+            
+        
+        
+        /*URLSession.shared.dataTask(with: myUrl) { (data, request, error) in
             if let _ = error {return}
             guard let httpResponse = request as? HTTPURLResponse,
                                                     (200...299).contains(httpResponse.statusCode)
@@ -71,6 +96,7 @@ class Service{
                                                         return
                                                 }
                       if let myData = data{
+                        print("this is the type of myData", type(of: myData))
                         do {
                        let jsonObject = try JSONSerialization.jsonObject(with: myData, options: []) as! NSDictionary
                             print(jsonObject)
@@ -90,7 +116,8 @@ class Service{
                         
                         }
             }
-        }.resume()
+        }.resume()*/
+        
     }
     
     func fetchFromWeatherIcon(key : String , handler : @escaping (Data)->Void) {
@@ -119,10 +146,10 @@ class Service{
         }.resume()*/
         
         AF.request(myUrl).responseData{response in
-            debugPrint(response)
+            //debugPrint(response)
             var hi : Data;
             hi = Data(response.data!)
-            print("THIS IS IN THE REQUEST", hi)
+            //print("THIS IS IN THE REQUEST", hi)
             self.delegate3?.iconServiceDelegateDidFinishWithData(result: hi)
         }
         
